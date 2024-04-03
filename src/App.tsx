@@ -1,52 +1,27 @@
-import React from 'react';
-import {MouseEvent} from 'react';
+import React, {useState} from 'react';
+import './App.css';
 import {Button} from "./components/Button";
 
 function App() {
 
-    // const myFirstSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
-    //     console.log('Hello im Vasya!')
-    // }
-    //
-    // const mySecondSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
-    //     console.log('Hello im Ivan!')
-    // }
+    // let a = 1;
 
-    // const onClickHandler = (name: string) => {
-    //     console.log(name)
-    // }
+    let [a, setA] = useState(1)
 
-    const Button1Foo = (subscriber: string, age: number, address: string) => {
-        console.log(subscriber, age, address)
+    const onClickHandler = () => {
+        setA(++a);
+        console.log(a)
     }
 
-    const Button2Foo = (subscriber: string) => {
-        console.log(subscriber)
-    }
-
-    const StupidBtn = () => {
-        console.log('Im stupid button')
-    }
-
-    const ColoredButton = (background: string) => {
-        console.log('Im colored button')
+    const resetButton = () => {
+        setA(a = 0)
     }
 
     return (
-        /*<div className={'App'}>
-            <button onClick={(event) => onClickHandler('Vasya!')}>MyYouTubeChanel-1</button>
-            <button onClick={(event) => onClickHandler('Ivan!')}>MyYouTubeChanel-2</button>
-        </div>*/
-
-        <div className={'App'}>
-            {/*<button>MyYouTubeChanel-1</button>*/}
-            {/*<button>MyYouTubeChanel-2</button>*/}
-
-            <Button name={'MyYouTubeChanel-1'} callBack={() => Button1Foo('Im Vasya!', 21, 'live in Minsk')}/>
-            <Button name={'MyYouTubeChanel-2'} callBack={() => Button2Foo('Im Ivan!')}/>
-            <Button name={'Stupid button'} callBack={StupidBtn}/>
-            <Button name={'Colored button'} callBack={() => ColoredButton("#f10909")}/>
-            {/*<Button name={'Delete'}/>*/}
+        <div className={"App"}>
+            <h1>{a}</h1>
+            <button onClick={onClickHandler}>number</button>
+            <button onClick={resetButton}>0</button>
         </div>
     );
 }
