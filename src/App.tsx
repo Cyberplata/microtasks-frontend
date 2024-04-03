@@ -19,11 +19,11 @@ function App() {
         return filteredMoney.banknote === 'ruble'
     })
 
-    type onClickFilterHandlerType = {
-        name: string
-    }
+    // type onClickFilterHandlerType = {
+    //     name: string
+    // }
 
-    const onClickFilterHandler = (props: onClickFilterHandlerType) => {
+    const onClickFilterHandler = (name: string) => {
         console.log('fffffffffffff')
     }
 
@@ -41,9 +41,9 @@ function App() {
                 })}
             </ul>
             <div style={{marginLeft: '35px'}}>
-                <button onClick={onClickFilterHandler}>{props.name}</button>
-                <button onClick={onClickFilterHandler}>ruble</button>
-                <button onClick={onClickFilterHandler}>dollar</button>
+                <Button onClick={onClickFilterHandler} name={'all'} callBack={()=> {}}></Button>
+                <Button onClick={onClickFilterHandler} name={'ruble'}></Button>
+                <Button onClick={onClickFilterHandler} name={'dollar'}></Button>
             </div>
         </>
     );
