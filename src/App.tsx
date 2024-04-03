@@ -4,25 +4,33 @@ import {Button} from "./components/Button";
 
 function App() {
 
-    // let a = 1;
+    const [money, setMoney] = useState([
+        {banknote: "dollar", nominal: 100, number: "a123456789"},
+        {banknote: "dollar", nominal: 50, number: "b123456789"},
+        {banknote: "ruble", nominal: 100, number: "c123456789"},
+        {banknote: "dollar", nominal: 100, number: "d123456789"},
+        {banknote: "dollar", nominal: 50, number: "e123456789"},
+        {banknote: "ruble", nominal: 100, number: "f123456789"},
+        {banknote: "dollar", nominal: 50, number: "j123456789"},
+        {banknote: "ruble", nominal: 50, number: "h123456789"}
+    ])
 
-    let [a, setA] = useState(1)
+    let currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === 'ruble')
 
-    const onClickHandler = () => {
-        setA(++a);
-        console.log(a)
-    }
-
-    const resetButton = () => {
-        setA(a = 0)
-    }
+    // setMoney(currentMoney)
 
     return (
-        <div className={"App"}>
-            <h1>{a}</h1>
-            <button onClick={onClickHandler}>number</button>
-            <button onClick={resetButton}>0</button>
-        </div>
+        <ul>
+            {money.map((objFromMoneyArr,index) => {
+                return(
+                    <li key={index}>
+                        <span>  {objFromMoneyArr.banknote}</span>
+                        <span>  {objFromMoneyArr.nominal}</span>
+                        <span>  {objFromMoneyArr.number}</span>
+                    </li>
+                )
+            })}
+        </ul>
     );
 }
 
