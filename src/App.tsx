@@ -4,7 +4,7 @@ import {Button} from "./components/Button";
 import {NewComponent} from "./NewComponent";
 import {NewComponentFilterPractice} from "./components/NewComponentFilterPractice";
 
-type FilterType = 'all' | 'dollar' | 'ruble'
+export type FilterType = 'all' | 'dollar' | 'ruble'
 
 function App() {
 
@@ -42,7 +42,7 @@ function App() {
 
     return (
         <>
-            <NewComponentFilterPractice/>
+            <NewComponentFilterPractice currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>
             {/*<ul>*/}
             {/*    {currentMoney.map((objFromMoneyArr, index) => {*/}
             {/*        return (*/}

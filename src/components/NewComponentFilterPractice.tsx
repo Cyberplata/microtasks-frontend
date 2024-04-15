@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
+import {FilterType} from "../App";
 
 type NewComponentFilterPractice = {
-
+    currentMoney: Array<{ banknote: string, nominal: number, number: string }>
+    onClickFilterHandler: (nameButton: FilterType) => void
 }
 
-export const NewComponentFilterPractice = () => {
+export const NewComponentFilterPractice = (props: NewComponentFilterPractice) => {
 
 
 
     return (
             <>
                 <ul>
-                    {currentMoney.map((objFromMoneyArr, index) => {
+                    {props.currentMoney.map((objFromMoneyArr, index) => {
                         return (
                             <li key={index}>
                                 <span>  {objFromMoneyArr.banknote}</span>
@@ -22,9 +24,9 @@ export const NewComponentFilterPractice = () => {
                     })}
                 </ul>
                 <div style={{marginLeft: '35px'}}>
-                    <button onClick={() => onClickFilterHandler('all')}>all</button>
-                    <button onClick={() => onClickFilterHandler('ruble')}>rubles</button>
-                    <button onClick={() => onClickFilterHandler('dollar')}>dollars</button>
+                    <button onClick={() => props.onClickFilterHandler('all')}>all</button>
+                    <button onClick={() => props.onClickFilterHandler('ruble')}>rubles</button>
+                    <button onClick={() => props.onClickFilterHandler('dollar')}>dollars</button>
                 </div>
             </>
     );
