@@ -4,16 +4,18 @@ import {FullInput} from "./components/FullInput";
 
 
 function App() {
-    const [message, setMessage] = useState([
-            {message: 'message1'},
-            {message: 'message2'},
-            {message: 'message3'},
-            {message: 'message4'},
-            {message: 'message5'}
+    let [message, setMessage] = useState([
+        {message: 'message1'},
+        {message: 'message2'},
+        {message: 'message3'},
+        {message: 'message4'},
+        {message: 'message5'}
     ])
 
     const addMessage = (title: string) => {
-        console.log(title)
+        // передали значение title, что вводим в input-е в newMessage и выводим через setMessage
+        let newMessage = {message: title}
+        setMessage([newMessage, ...message])
     }
 
     return (
