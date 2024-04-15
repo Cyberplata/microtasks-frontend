@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FilterType} from "../App";
 
-type NewComponentFilterPractice = {
+type NewComponentPropsType = {
     currentMoney: Array<{ banknote: string, nominal: number, number: string }>
     onClickFilterHandler: (nameButton: FilterType) => void
 }
 
-export const NewComponentFilterPractice = (props: NewComponentFilterPractice) => {
-
-
+export const NewComponentFilterPractice = (props: NewComponentPropsType) => {
 
     return (
             <>
