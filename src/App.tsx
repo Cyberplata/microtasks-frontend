@@ -12,8 +12,8 @@ function App() {
             {message: 'message5'}
     ])
 
-    const addMessage = (value: string) => {
-        console.log('ooppsss button!!!')
+    const addMessage = (title: string) => {
+        console.log(title)
     }
 
     return (
