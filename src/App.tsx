@@ -15,7 +15,7 @@ function App() {
 
     let [title, setTitle] = useState('')
 
-    
+
 
     const addMessage = (title: string) => {
         // передали значение title, что вводим в input-е в newMessage и выводим через setMessage
@@ -32,7 +32,8 @@ function App() {
 
             {/*<FullInput addMessage={addMessage}/>*/}
 
-            <Input/>
+            // Задача передать title и setTitle из глобального стейта в компоненту Input
+            <Input setTitle={setTitle} title={title}/>
             <Button name={'+'} callBack={() => {}}/>
 
             {message.map((el, index) => {
