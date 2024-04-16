@@ -21,15 +21,18 @@ function App() {
         // передали значение title, что вводим в input-е в newMessage и выводим через setMessage
         let newMessage = {message: title}
         setMessage([newMessage, ...message])
+    }
+
+    const callBackButtonHandler = () => {
+        addMessage(title)
         setTitle('')
     }
 
     return (
         <div className="App">
-
-            {/*Задача передать title и setTitle из глобального стейта в компоненту Input*/}
+            {/*Задача передать title и setTitle из глобального стейта App в дочернюю компоненту Input*/}
             <Input setTitle={setTitle} title={title}/>
-            <Button name={'+'} callBack={ () => {addMessage(title) }}/>
+            <Button name={'+'} callBack={callBackButtonHandler}/>
 
             {message.map((el, index) => {
                 return (
