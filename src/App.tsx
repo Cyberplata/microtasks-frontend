@@ -14,27 +14,22 @@ function App() {
     ])
 
     let [title, setTitle] = useState('')
-
+    console.log(title)
 
 
     const addMessage = (title: string) => {
         // передали значение title, что вводим в input-е в newMessage и выводим через setMessage
         let newMessage = {message: title}
         setMessage([newMessage, ...message])
+        setTitle('')
     }
 
     return (
         <div className="App">
-            {/*<div>*/}
-            {/*    <input />*/}
-            {/*    <button>+</button>*/}
-            {/*</div>*/}
 
-            {/*<FullInput addMessage={addMessage}/>*/}
-
-            // Задача передать title и setTitle из глобального стейта в компоненту Input
+            {/*Задача передать title и setTitle из глобального стейта в компоненту Input*/}
             <Input setTitle={setTitle} title={title}/>
-            <Button name={'+'} callBack={() => {}}/>
+            <Button name={'+'} callBack={ () => {addMessage(title) }}/>
 
             {message.map((el, index) => {
                 return (
