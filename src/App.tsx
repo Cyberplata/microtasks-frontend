@@ -13,6 +13,10 @@ function App() {
         {message: 'message5'}
     ])
 
+    let [title, setTitle] = useState('')
+
+    
+
     const addMessage = (title: string) => {
         // передали значение title, что вводим в input-е в newMessage и выводим через setMessage
         let newMessage = {message: title}
