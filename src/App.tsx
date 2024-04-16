@@ -29,7 +29,7 @@ function App() {
             {/*<FullInput addMessage={addMessage}/>*/}
 
             <Input/>
-            <Button/>
+            <Button name={'+'} callBack={() => {}}/>
 
             {message.map((el, index) => {
                 return (
