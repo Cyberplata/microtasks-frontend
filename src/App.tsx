@@ -84,8 +84,13 @@ function App() {
     //     tasksForTodolist = tasks.filter(t => t.isDone === true);
     // }
 
-    function changeFilter(value: FilterValuesType) {
-        // setFilter(value);
+    function changeFilter(todolistID: string, value: FilterValuesType) {
+        // setFilter(value)
+        setTodolists(todolists.map(
+            el => el.id === todolistID
+                ? {...el, filter: value}
+                : el
+        ))
     }
 
     return (
@@ -101,7 +106,9 @@ function App() {
                         tasksForTodolist = tasks[mapTodolists.id].filter(t => t.isDone === true);
                     }
                     return (
-                        <Todolist title={mapTodolists.title}
+                        <Todolist key={mapTodolists.id}
+                                  todolistID={mapTodolists.id}
+                                  title={mapTodolists.title}
                                   tasks={tasksForTodolist}
                                   removeTask={removeTask}
                                   changeFilter={changeFilter}
