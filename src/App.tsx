@@ -36,7 +36,7 @@ function App() {
         {id: todolistID1, title: 'What to learn', filter: 'all'},
         {id: todolistID2, title: 'What to buy', filter: 'all'},
     ])
-    console.log(todolists['filter'])
+
     let [tasks, setTasks] = useState<TasksType>({
         [todolistID1]: [
             {id: v1(), title: "HTML&CSS", isDone: true},
@@ -54,14 +54,22 @@ function App() {
         ]
     });
 
-
-    function removeTask(id: string) {
+    function removeTask(todolistID: string, id: string) {
+        console.log(tasks[todolistID])
+        setTasks({
+            ...tasks,
+            [todolistID]: tasks[todolistID].filter(el => el.id !== id)
+        })
         // let filteredTasks = tasks.filter(t => t.id != id);
         // setTasks(filteredTasks);
     }
 
-    function addTask(title: string) {
-        // let task = {id: v1(), title: title, isDone: false};
+    function addTask(todolistID: string, title: string) {
+        let task = {id: v1(), title: title, isDone: false};
+        setTasks({
+            ...tasks,
+            [todolistID]: [task, ...tasks[todolistID]]
+        })
         // let newTasks = [task, ...tasks];
         // setTasks(newTasks);
     }
@@ -85,11 +93,13 @@ function App() {
     // }
 
     function changeFilter(todolistID: string, value: FilterValuesType) {
+        console.log(todolistID)
         // setFilter(value)
+        // {id: todolistID1, title: 'What to learn', filter: 'all'}
         setTodolists(todolists.map(
-            el => el.id === todolistID
-                ? {...el, filter: value}
-                : el
+            filtered => filtered.id === todolistID
+                ? {...filtered, filter: value}
+                : filtered
         ))
     }
 
