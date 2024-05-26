@@ -65,16 +65,24 @@ function App() {
     }
 
     function addTask(todolistID: string, title: string) {
-        let task = {id: v1(), title: title, isDone: false};
+        let newTask = {id: v1(), title: title, isDone: false};
         setTasks({
             ...tasks,
-            [todolistID]: [task, ...tasks[todolistID]]
+            [todolistID]: [newTask, ...tasks[todolistID]]
         })
         // let newTasks = [task, ...tasks];
         // setTasks(newTasks);
     }
 
-    function changeStatus(taskId: string, isDone: boolean) {
+    function changeStatus(todolistID: string, taskId: string, isDone: boolean) {
+        setTasks({
+            ...tasks,
+            [todolistID]: tasks[todolistID].map(
+                el => el.id === taskId
+                    ? {...el, isDone: isDone}
+                    : el
+            )
+        })
         // let task = tasks.find(t => t.id === taskId);
         // if (task) {
         //     task.isDone = isDone;
