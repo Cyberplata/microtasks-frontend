@@ -75,24 +75,31 @@ function App() {
         // setTasks([...tasks]);
     }
 
-    let tasksForTodolist = tasks[todolistID];
+    // let tasksForTodolist = tasks[todolistID];
 
-    if (todolists.filter === "active") {
-        tasksForTodolist = tasks.filter(t => t.isDone === false);
-    }
-    if (filter === "completed") {
-        tasksForTodolist = tasks.filter(t => t.isDone === true);
-    }
+    // if (todolists.filter === "active") {
+    //     tasksForTodolist = tasks.filter(t => t.isDone === false);
+    // }
+    // if (filter === "completed") {
+    //     tasksForTodolist = tasks.filter(t => t.isDone === true);
+    // }
 
     function changeFilter(value: FilterValuesType) {
         // setFilter(value);
     }
 
-
     return (
         <div className="App">
             {
                 todolists.map(mapTodolists => {
+                    let tasksForTodolist = tasks[mapTodolists.id];
+
+                    if (mapTodolists.filter === "active") {
+                        tasksForTodolist = tasks[mapTodolists.id].filter(t => t.isDone === false);
+                    }
+                    if (mapTodolists.filter === "completed") {
+                        tasksForTodolist = tasks[mapTodolists.id].filter(t => t.isDone === true);
+                    }
                     return (
                         <Todolist title={mapTodolists.title}
                                   tasks={tasksForTodolist}
