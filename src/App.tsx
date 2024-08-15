@@ -24,8 +24,8 @@ function App() {
                         <Route path="/page2" element={<PageTwo/>}/>
                         <Route path="/page3" element={<PageThree/>}/>
 
-                        <Route path="/page/error404" element={<Error404/>}/>
-                        <Route path="/*" element={<Navigate to={"/page/error404"}/>}/>
+                        <Route path="/page/error" element={<Error404/>}/>
+                        <Route path="/*" element={<Navigate to={"/page/error"}/>}/>
                     </Routes>
                 </div>
             </div>
