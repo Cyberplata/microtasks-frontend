@@ -3,7 +3,7 @@ import styles from "./components/Site.module.css";
 import {PageOne} from "./components/pages/PageOne";
 import {PageTwo} from "./components/pages/PageTwo";
 import {PageThree} from "./components/pages/PageThree";
-import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
+import {Link, Navigate, NavLink, Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 
 
@@ -16,6 +16,7 @@ function App() {
                     <div> <NavLink to={"/page1"}>Page1</NavLink> </div>
                     <div> <NavLink to={"/page2"}>Page2</NavLink> </div>
                     <div> <NavLink to={"/page3"}>Page3</NavLink> </div>
+                    <div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>
                 </div>
                 <div className={styles.content}>
                     <Routes>
