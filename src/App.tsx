@@ -17,8 +17,8 @@ function App() {
                 </div>
                 <div className={styles.content}>
                     <Routes>
-                        <Route path="/page1" element={<PageOne/>}/>
                         <Route path="/" element={<Navigate to={"/page1"}/>}/>
+                        {/*<Route path="/" element={<Navigate to={"/page1"}/>}/>*/}
 
                         <Route path="/page1" element={<PageOne/>}/>
                         <Route path="/page2" element={<PageTwo/>}/>
