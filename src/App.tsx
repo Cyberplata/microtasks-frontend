@@ -5,6 +5,7 @@ import {PageTwo} from "./components/pages/PageTwo";
 import {PageThree} from "./components/pages/PageThree";
 import {Link, Navigate, NavLink, Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
+import styled from "styled-components";
 
 
 function App() {
@@ -13,29 +14,29 @@ function App() {
             <div className={styles.header}><h1>HEADER</h1></div>
             <div className={styles.body}>
                 <div className={styles.nav}>
-                    <div>
+                    <NavWrapper>
                         <NavLink to={"/page1"}
                                  className={({isActive}) =>
-                                     isActive ? styles.activeNavLink : styles.navLink
+                                     isActive ? styles.active : styles.navLink
                                  }>Page1
                         </NavLink>
-                    </div>
-                    <div>
+                    </NavWrapper>
+                    <NavWrapper>
                         <NavLink to={"/page2"}
                                  className={({isActive}) =>
-                                     isActive ? styles.activeNavLink : styles.navLink
+                                     isActive ? styles.active : styles.navLink
                                  }>Page2
                         </NavLink>
-                    </div>
-                    <div>
+                    </NavWrapper>
+                    <NavWrapper>
                         <NavLink to={"/page3"}
                                  className={({isActive}) =>
-                                     isActive ? styles.activeNavLink : styles.navLink
+                                     isActive ? styles.active : styles.navLink
                                  }>Page3
                         </NavLink>
-                    </div>
-                    <div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>
+                    </NavWrapper>
                     <a href="page3">page 3 HTML</a>
+                    {/*<div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>*/}
                 </div>
                 <div className={styles.content}>
                     <Routes>
@@ -56,5 +57,24 @@ function App() {
     );
 }
 
+
+const NavWrapper = styled.div`
+    margin-left: 10px;
+    font-size: 20px;
+
+    & > a {
+        text-decoration: none;
+        color: #1e3786;
+    }
+
+    & > a.active {
+        text-decoration: none;
+        color: #03eaff;
+    }
+
+    & > a:hover {
+        color: steelblue;
+    }
+`
 
 export default App;
