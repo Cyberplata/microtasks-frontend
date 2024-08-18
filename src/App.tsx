@@ -8,6 +8,13 @@ import {Error404} from "./components/pages/Error404";
 import styled from "styled-components";
 import {S} from "./components/pages/_styles"
 
+const PATH = {
+    PAGE1: "/page1",
+    PAGE2: "/page2",
+    PAGE3: "/page3",
+    ERROR: "/page/error",
+} as const
+
 function App() {
     return (
         <div>
@@ -15,28 +22,28 @@ function App() {
             <S.BodyWrapper>
                 <S.AllNavigationWrapper>
                     <S.NavWrapper>
-                        <NavLink to={"/page1"}>Page1</NavLink>
+                        <NavLink to={PATH.PAGE1}>Page1</NavLink>
                     </S.NavWrapper>
                     <S.NavWrapper>
-                        <NavLink to={"/page2"}>Page2</NavLink>
+                        <NavLink to={PATH.PAGE2}>Page2</NavLink>
                     </S.NavWrapper>
                     <S.NavWrapper>
-                        <NavLink to={"/page3"}>Page3</NavLink>
+                        <NavLink to={PATH.PAGE3}>Page3</NavLink>
                     </S.NavWrapper>
                     <a href="page3">page 3 HTML</a>
                     {/*<div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>*/}
                 </S.AllNavigationWrapper>
                 <S.Content>
                     <Routes>
-                        <Route path="/" element={<Navigate to={"/page1"}/>}/>
+                        <Route path="/" element={<Navigate to={PATH.PAGE1}/>}/>
                         {/*<Route path="/" element={<Navigate to={"/page1"}/>}/>*/}
 
-                        <Route path="/page1" element={<PageOne/>}/>
-                        <Route path="/page2" element={<PageTwo/>}/>
-                        <Route path="/page3" element={<PageThree/>}/>
+                        <Route path={PATH.PAGE1} element={<PageOne/>}/>
+                        <Route path={PATH.PAGE2} element={<PageTwo/>}/>
+                        <Route path={PATH.PAGE3} element={<PageThree/>}/>
 
-                        <Route path="/page/error" element={<Error404/>}/>
-                        <Route path="/*" element={<Navigate to={"/page/error"}/>}/>
+                        <Route path={PATH.ERROR} element={<Error404/>}/>
+                        <Route path="/*" element={<Navigate to={PATH.ERROR}/>}/>
                     </Routes>
                 </S.Content>
             </S.BodyWrapper>
