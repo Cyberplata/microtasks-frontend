@@ -35,6 +35,7 @@ function App() {
                         </NavLink>
                     </div>
                     <div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>
+                    <a href="page3">page 3 HTML</a>
                 </div>
                 <div className={styles.content}>
                     <Routes>
