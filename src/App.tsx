@@ -11,9 +11,9 @@ import {S} from "./components/pages/_styles"
 function App() {
     return (
         <div>
-            <div className={styles.header}><h1>HEADER</h1></div>
-            <div className={styles.body}>
-                <div className={styles.nav}>
+            <S.HeaderWrapper><h1>HEADER</h1></S.HeaderWrapper>
+            <S.BodyWrapper>
+                <S.AllNavigationWrapper>
                     <S.NavWrapper>
                         <NavLink to={"/page1"}>Page1</NavLink>
                     </S.NavWrapper>
@@ -25,8 +25,8 @@ function App() {
                     </S.NavWrapper>
                     <a href="page3">page 3 HTML</a>
                     {/*<div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>*/}
-                </div>
-                <div className={styles.content}>
+                </S.AllNavigationWrapper>
+                <S.Content>
                     <Routes>
                         <Route path="/" element={<Navigate to={"/page1"}/>}/>
                         {/*<Route path="/" element={<Navigate to={"/page1"}/>}/>*/}
@@ -38,9 +38,9 @@ function App() {
                         <Route path="/page/error" element={<Error404/>}/>
                         <Route path="/*" element={<Navigate to={"/page/error"}/>}/>
                     </Routes>
-                </div>
-            </div>
-            <div className={styles.footer}>abibas 2023</div>
+                </S.Content>
+            </S.BodyWrapper>
+            <S.Footer>abibas 2023</S.Footer>
         </div>
     );
 }
