@@ -13,9 +13,27 @@ function App() {
             <div className={styles.header}><h1>HEADER</h1></div>
             <div className={styles.body}>
                 <div className={styles.nav}>
-                    <div> <NavLink to={"/page1"}>Page1</NavLink> </div>
-                    <div> <NavLink to={"/page2"}>Page2</NavLink> </div>
-                    <div> <NavLink to={"/page3"}>Page3</NavLink> </div>
+                    <div>
+                        <NavLink to={"/page1"}
+                                 className={({isActive}) =>
+                                     isActive ? styles.activeNavLink : styles.navLink
+                                 }>Page1
+                        </NavLink>
+                    </div>
+                    <div>
+                        <NavLink to={"/page2"}
+                                 className={({isActive}) =>
+                                     isActive ? styles.activeNavLink : styles.navLink
+                                 }>Page2
+                        </NavLink>
+                    </div>
+                    <div>
+                        <NavLink to={"/page3"}
+                                 className={({isActive}) =>
+                                     isActive ? styles.activeNavLink : styles.navLink
+                                 }>Page3
+                        </NavLink>
+                    </div>
                     <div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>
                 </div>
                 <div className={styles.content}>
