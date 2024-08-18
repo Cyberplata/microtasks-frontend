@@ -6,7 +6,7 @@ import {PageThree} from "./components/pages/PageThree";
 import {Link, Navigate, NavLink, Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
 import styled from "styled-components";
-
+import {S} from "./components/pages/_styles"
 
 function App() {
     return (
@@ -14,27 +14,15 @@ function App() {
             <div className={styles.header}><h1>HEADER</h1></div>
             <div className={styles.body}>
                 <div className={styles.nav}>
-                    <NavWrapper>
-                        <NavLink to={"/page1"}
-                                 className={({isActive}) =>
-                                     isActive ? styles.active : styles.navLink
-                                 }>Page1
-                        </NavLink>
-                    </NavWrapper>
-                    <NavWrapper>
-                        <NavLink to={"/page2"}
-                                 className={({isActive}) =>
-                                     isActive ? styles.active : styles.navLink
-                                 }>Page2
-                        </NavLink>
-                    </NavWrapper>
-                    <NavWrapper>
-                        <NavLink to={"/page3"}
-                                 className={({isActive}) =>
-                                     isActive ? styles.active : styles.navLink
-                                 }>Page3
-                        </NavLink>
-                    </NavWrapper>
+                    <S.NavWrapper>
+                        <NavLink to={"/page1"}>Page1</NavLink>
+                    </S.NavWrapper>
+                    <S.NavWrapper>
+                        <NavLink to={"/page2"}>Page2</NavLink>
+                    </S.NavWrapper>
+                    <S.NavWrapper>
+                        <NavLink to={"/page3"}>Page3</NavLink>
+                    </S.NavWrapper>
                     <a href="page3">page 3 HTML</a>
                     {/*<div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>*/}
                 </div>
@@ -56,25 +44,5 @@ function App() {
         </div>
     );
 }
-
-
-const NavWrapper = styled.div`
-    margin-left: 10px;
-    font-size: 20px;
-
-    & > a {
-        text-decoration: none;
-        color: #1e3786;
-    }
-
-    & > a.active {
-        text-decoration: none;
-        color: #03eaff;
-    }
-
-    & > a:hover {
-        color: steelblue;
-    }
-`
 
 export default App;
