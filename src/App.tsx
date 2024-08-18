@@ -42,8 +42,11 @@ function App() {
                         <Route path={PATH.PAGE2} element={<PageTwo/>}/>
                         <Route path={PATH.PAGE3} element={<PageThree/>}/>
 
-                        <Route path={PATH.ERROR} element={<Error404/>}/>
-                        <Route path="/*" element={<Navigate to={PATH.ERROR}/>}/>
+                        <Route path={"/*"} element={<Error404/>}/>
+                        <Route path="/*" element={<Navigate to={"/*"}/>}/>
+
+                        {/*<Route path={PATH.ERROR} element={<Error404/>}/>*/}
+                        {/*<Route path="/*" element={<Navigate to={PATH.ERROR}/>}/>*/}
                     </Routes>
                 </S.Content>
             </S.BodyWrapper>
