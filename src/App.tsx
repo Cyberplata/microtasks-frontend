@@ -43,7 +43,7 @@ function App() {
                         <Route path={PATH.PAGE3} element={<PageThree/>}/>
 
                         <Route path={"/*"} element={<Error404/>}/>
-                        <Route path="/*" element={<Navigate to={"/*"}/>}/>
+                        {/*<Route path="/*" element={<Navigate to={"/*"}/>}/>*/}
 
                         {/*<Route path={PATH.ERROR} element={<Error404/>}/>*/}
                         {/*<Route path="/*" element={<Navigate to={PATH.ERROR}/>}/>*/}
