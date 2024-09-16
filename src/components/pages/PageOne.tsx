@@ -3,7 +3,7 @@ import React from 'react';
 export const PageOne = () => {
     return (
         <div>
-           <h2> ADIDAS</h2>
+           <h2>ADIDAS</h2>
             <p>
                 What is Lorem Ipsum?
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
