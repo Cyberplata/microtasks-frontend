@@ -2,6 +2,7 @@ import React from 'react';
 import adidasModel1 from '../../assets/AdiFOM_TRXN_Shoes_Black_IG7453_01_standard.webp'
 import adidasModel2 from '../../assets/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
 import adidasModel3 from '../../assets/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp'
+import styled from "styled-components";
 
 
 export type AdidasItem= {
@@ -16,7 +17,6 @@ export const adidasArr:AdidasItem[] = [
         collection: 'new collection1',
         price: '100200$',
         picture: adidasModel1,
-
     },
     {
         model: 'ADIDAS ADIFOM SUPER',
@@ -36,6 +36,12 @@ export const Adidas = () => {
     return (
         <div>
            <h2>ADIDAS</h2>
+            <PhotoWrapper>
+                {/*{adidasArr.map(p=>p.picture)}*/}
+                <StyledPhoto src={adidasModel1} alt="adidasModel1"/>
+                <StyledPhoto src={adidasModel2} alt="adidasModel2"/>
+                <StyledPhoto src={adidasModel3} alt="adidasModel3"/>
+            </PhotoWrapper>
             <p>
                 What is Lorem Ipsum?
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
@@ -65,3 +71,15 @@ export const Adidas = () => {
     );
 };
 
+const PhotoWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    
+    gap: 20px;
+`
+
+const StyledPhoto = styled.img`
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+`
