@@ -46,7 +46,7 @@ export const Adidas = () => {
             <PhotoWrapper>
                 {adidasArr.map((addidas, index) => {
                     return (
-                        <Link key={index} to={`/adidas/${addidas.id}/${addidas.id+2}`}>
+                        <Link key={index} to={`/adidas/${addidas.id}`}>
                             <StyledPhoto src={addidas.picture}
                                          alt={addidas.model}
                             />
@@ -111,7 +111,7 @@ export const PhotoWrapper = styled.div`
 `
 
 export const StyledPhoto = styled.img`
-    max-width: 250px;
-    max-height: 250px;
+    width: 250px;
+    height: auto;
     object-fit: cover;
 `
