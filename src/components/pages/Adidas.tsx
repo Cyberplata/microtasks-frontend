@@ -4,6 +4,9 @@ import adidasModel2
     from '../../assets/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
 import adidasModel3 from '../../assets/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp'
 import styled from "styled-components";
+import {NavLink, Route, Routes} from "react-router-dom";
+import {PATH} from "../../App";
+import {Model} from "./Model";
 
 
 export type AdidasItem = {
@@ -37,17 +40,16 @@ export const Adidas = () => {
     return (
         <div>
             <h2>ADIDAS</h2>
-            {/*<PhotoWrapper>*/}
-            {/*    /!*{adidasArr.map(p=>p.picture)}*!/*/}
-            {/*    <StyledPhoto src={adidasModel1} alt="adidasModel1"/>*/}
-            {/*    <StyledPhoto src={adidasModel2} alt="adidasModel2"/>*/}
-            {/*    <StyledPhoto src={adidasModel3} alt="adidasModel3"/>*/}
-            {/*</PhotoWrapper>*/}
 
             <PhotoWrapper>
-                {adidasArr.map((addidas) => {
-                    return <StyledPhoto key={addidas.model} src={addidas.picture} alt={addidas.model}/>
-                })}
+                <NavLink to={PATH.MODEL}>
+                    {adidasArr.map((addidas) => {
+                        return <StyledPhoto key={addidas.model}
+                                            src={addidas.picture}
+                                            alt={addidas.model}
+                        />
+                    })}
+                </NavLink>
             </PhotoWrapper>
 
             <p>
@@ -92,15 +94,21 @@ export const Adidas = () => {
     );
 };
 
-const PhotoWrapper = styled.div`
-    display: flex;
-    justify-content: center;
+export const PhotoWrapper = styled.div`
+    //display: flex;
+    //justify-content: center;
+    //gap: 20px;
+    
+    & > a {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
 
-    gap: 20px;
 `
 
-const StyledPhoto = styled.img`
-    width: 250px;
-    height: 250px;
+export const StyledPhoto = styled.img`
+    max-width: 250px;
+    max-height: 250px;
     object-fit: cover;
 `
