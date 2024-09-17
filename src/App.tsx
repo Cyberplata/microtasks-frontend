@@ -14,7 +14,7 @@ export const PATH = {
     PAGE2: "/puma",
     PAGE3: "/abibas",
     ERROR: "/page/error",
-    MODEL: "/model",
+    MODEL: "/adidas/model",
 } as const
 
 function App() {

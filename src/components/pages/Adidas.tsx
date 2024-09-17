@@ -4,9 +4,8 @@ import adidasModel2
     from '../../assets/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
 import adidasModel3 from '../../assets/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp'
 import styled from "styled-components";
-import {NavLink, Route, Routes} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {PATH} from "../../App";
-import {Model} from "./Model";
 
 
 export type AdidasItem = {
@@ -42,14 +41,15 @@ export const Adidas = () => {
             <h2>ADIDAS</h2>
 
             <PhotoWrapper>
-                <NavLink to={PATH.MODEL}>
-                    {adidasArr.map((addidas) => {
-                        return <StyledPhoto key={addidas.model}
-                                            src={addidas.picture}
-                                            alt={addidas.model}
-                        />
-                    })}
-                </NavLink>
+                {adidasArr.map((addidas, index) => {
+                    return (
+                        <Link key={index} to={PATH.MODEL}>
+                            <StyledPhoto src={addidas.picture}
+                                         alt={addidas.model}
+                            />
+                        </Link>
+                    )
+                })}
             </PhotoWrapper>
 
             <p>
@@ -95,14 +95,14 @@ export const Adidas = () => {
 };
 
 export const PhotoWrapper = styled.div`
-    //display: flex;
-    //justify-content: center;
-    //gap: 20px;
-    
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
     & > a {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
+        //display: flex;
+        //justify-content: center;
+        //gap: 20px;
     }
 
 `
