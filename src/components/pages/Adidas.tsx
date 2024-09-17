@@ -46,7 +46,7 @@ export const Adidas = () => {
             <PhotoWrapper>
                 {adidasArr.map((addidas, index) => {
                     return (
-                        <Link key={index} to={`/adidas/${addidas.id}`}>
+                        <Link key={index} to={`/adidas/${addidas.id}/${addidas.id+2}`}>
                             <StyledPhoto src={addidas.picture}
                                          alt={addidas.model}
                             />
