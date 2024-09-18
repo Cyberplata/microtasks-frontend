@@ -4,6 +4,7 @@ import {useParams} from "react-router-dom";
 import styled from "styled-components";
 
 export const Model = () => {
+    // Хук useParams возвращает объект пар ключ/значение динамических параметров из текущего URL-адреса, которые были сопоставлены с <Route path>. Дочерние маршруты наследуют все параметры от своих родительских маршрутов.
     const params = useParams()
 
     // Преобразуем из строки в число и вычитаем - 1 это и получается наша id
