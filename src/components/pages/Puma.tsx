@@ -2,8 +2,9 @@ import React from 'react';
 import pumaModel1 from "../../assets/puma/pumaModel1.webp";
 import pumaModel2 from "../../assets/puma/pumaModel2.webp";
 import pumaModel3 from "../../assets/puma/pumaModel3.webp";
-import {PhotoWrapper, StyledPhoto} from "./Adidas";
+import {PhotoWrapper} from "./Adidas";
 import {Link} from "react-router-dom";
+import styled from "styled-components";
 
 export type PumaItem = {
     id: number
@@ -14,21 +15,21 @@ export type PumaItem = {
 }
 export const pumaArr: PumaItem[] = [
     {
-        id: 1,
+        id: 4,
         model: 'PUMA Sneakers',
         collection: 'new collection11',
         price: '100100$',
         picture: pumaModel1,
     },
     {
-        id: 2,
+        id: 5,
         model: 'PUMA Winter Boots',
         collection: 'new collection222',
         price: '200200$',
         picture: pumaModel2
     },
     {
-        id: 3,
+        id: 6,
         model: 'PUMA Mens Flip Flops',
         collection: 'new collection3333',
         price: '300300$',
@@ -82,3 +83,8 @@ export const Puma = () => {
     );
 };
 
+export const StyledPhoto = styled.img`
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+`

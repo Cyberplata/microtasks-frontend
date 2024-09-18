@@ -3,6 +3,7 @@ import {adidasArr} from "./Adidas";
 import {Navigate, useParams} from "react-router-dom";
 import styled from "styled-components";
 import {ModelMissing} from "./ModelMissing";
+import {pumaArr} from "./Puma";
 
 export const Model = () => {
     // Хук useParams возвращает объект пар ключ/значение динамических параметров из текущего URL-адреса, которые были сопоставлены с <Route path>. Дочерние маршруты наследуют все параметры от своих родительских маршрутов.
@@ -14,10 +15,17 @@ export const Model = () => {
     // console.log(resultID) // { id: '1' }
 
     const findAdidas = adidasArr.find((el) => el.id === resultID)
-    if (!findAdidas) {
-        // return <Navigate to="/adidas/missing" />;
-        return <ModelMissing />;
-    }
+    // if (!findAdidas) {
+    //     // return <Navigate to="/adidas/missing" />;
+    //     return <ModelMissing />;
+    // }
+
+    const findPuma = pumaArr.find((el) => el.id === resultID)
+    // if (!findPuma) {
+    //     // return <Navigate to="/adidas/missing" />;
+    //     return <ModelMissing />;
+    // }
+
 
     return (
         // Через resultID
@@ -32,15 +40,38 @@ export const Model = () => {
         //     {/*</PhotoWrapper>*/}
         // </FlexWrapper>
 
-        // Через find
-        <FlexWrapper>
-            <h2>{findAdidas.model}</h2>
-            <h4>{findAdidas.collection}</h4>
-            <h3>{findAdidas.price}</h3>
-            <StyledPhoto src={findAdidas.picture}
-                         alt={findAdidas.model}
-            />
-        </FlexWrapper>
+        // // Через find
+        // <FlexWrapper>
+        //     <h2>{findAdidas.model}</h2>
+        //     <h4>{findAdidas.collection}</h4>
+        //     <h3>{findAdidas.price}</h3>
+        //     <StyledPhoto src={findAdidas.picture}
+        //                  alt={findAdidas.model}
+        //     />
+        // </FlexWrapper>
+
+        <>
+            {findAdidas ? (
+                    <FlexWrapper>
+                        <h2>{findAdidas.model}</h2>
+                        <h4>{findAdidas.collection}</h4>
+                        <h3>{findAdidas.price}</h3>
+                        <StyledPhoto src={findAdidas.picture} alt={findAdidas.model}/>
+                    </FlexWrapper>
+                ) :
+
+                findPuma ? (
+                    <FlexWrapper>
+                        <h2>{findPuma.model}</h2>
+                        <h4>{findPuma.collection}</h4>
+                        <h3>{findPuma.price}</h3>
+                        <StyledPhoto src={findPuma.picture} alt={findPuma.model}/>
+                    </FlexWrapper>
+                ) : (
+                    <ModelMissing/>
+                )
+            }
+        </>
     );
 };
 
