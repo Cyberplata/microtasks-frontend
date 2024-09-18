@@ -8,19 +8,20 @@ export const Model = () => {
     const params = useParams()
 
     // Преобразуем из строки в число и вычитаем - 1 это и получается наша id
-    const resultID = Number(params.id) -1
+    // const resultID = Number(params.id) - 1
+    const resultID = Number(params.id)
     console.log(resultID) // { id: '1' }
 
     return (
         <FlexWrapper>
             <h2>{adidasArr[resultID].model}</h2>
-            <div>{adidasArr[resultID].collection}</div>
-            <div>{adidasArr[resultID].price}</div>
-            <PhotoWrapper>
-                <StyledPhoto src={adidasArr[resultID].picture}
-                             alt={adidasArr[resultID].model}
-                />
-            </PhotoWrapper>
+            <h4>{adidasArr[resultID].collection}</h4>
+            <h3>{adidasArr[resultID].price}</h3>
+            {/*<PhotoWrapper>*/}
+            <StyledPhoto src={adidasArr[resultID].picture}
+                         alt={adidasArr[resultID].model}
+            />
+            {/*</PhotoWrapper>*/}
         </FlexWrapper>
     );
 };
@@ -30,7 +31,7 @@ const FlexWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 50px;
+    //gap: 50px;
 `
 
 export const PhotoWrapper = styled.div`

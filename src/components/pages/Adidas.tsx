@@ -16,21 +16,21 @@ export type AdidasItem = {
 }
 export const adidasArr: AdidasItem[] = [
     {
-        id: 1,
+        id: 0,
         model: 'ADIDAS ADIFOM TRXN',
         collection: 'new collection1',
         price: '100200$',
         picture: adidasModel1,
     },
     {
-        id: 2,
+        id: 1,
         model: 'ADIDAS ADIFOM SUPER',
         collection: 'new collection22',
         price: '200300$',
         picture: adidasModel2
     },
     {
-        id: 3,
+        id: 2,
         model: 'ADIDAS SUPER SUPERSKI',
         collection: 'new collection333',
         price: '300400$',
@@ -46,6 +46,7 @@ export const Adidas = () => {
             <PhotoWrapper>
                 {adidasArr.map((addidas, index) => {
                     return (
+                        // Любую информацию можно передавать в параметры URL-адреса, то есть после adidas/ => to={`/adidas/hhhhhhhhhhh итд
                         <Link key={index} to={`/adidas/${addidas.id}`}>
                             <StyledPhoto src={addidas.picture}
                                          alt={addidas.model}
