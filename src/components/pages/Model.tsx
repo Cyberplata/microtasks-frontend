@@ -1,7 +1,8 @@
 import React from 'react';
 import {adidasArr} from "./Adidas";
-import {useParams} from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 import styled from "styled-components";
+import {ModelMissing} from "./ModelMissing";
 
 export const Model = () => {
     // Хук useParams возвращает объект пар ключ/значение динамических параметров из текущего URL-адреса, которые были сопоставлены с <Route path>. Дочерние маршруты наследуют все параметры от своих родительских маршрутов.
@@ -10,18 +11,35 @@ export const Model = () => {
     // Преобразуем из строки в число и вычитаем - 1 это и получается наша id
     // const resultID = Number(params.id) - 1
     const resultID = Number(params.id)
-    console.log(resultID) // { id: '1' }
+    // console.log(resultID) // { id: '1' }
+
+    const findImplement = adidasArr.find((el) => el.id === resultID)
+    if (!findImplement) {
+        // return <Navigate to="/adidas/missing" />;
+        return <ModelMissing />;
+    }
 
     return (
+        // Через resultID
+        // <FlexWrapper>
+        //     <h2>{adidasArr[resultID].model}</h2>
+        //     <h4>{adidasArr[resultID].collection}</h4>
+        //     <h3>{adidasArr[resultID].price}</h3>
+        //     {/*<PhotoWrapper>*/}
+        //     <StyledPhoto src={adidasArr[resultID].picture}
+        //                  alt={adidasArr[resultID].model}
+        //     />
+        //     {/*</PhotoWrapper>*/}
+        // </FlexWrapper>
+
+        // Через find
         <FlexWrapper>
-            <h2>{adidasArr[resultID].model}</h2>
-            <h4>{adidasArr[resultID].collection}</h4>
-            <h3>{adidasArr[resultID].price}</h3>
-            {/*<PhotoWrapper>*/}
-            <StyledPhoto src={adidasArr[resultID].picture}
-                         alt={adidasArr[resultID].model}
+            <h2>{findImplement.model}</h2>
+            <h4>{findImplement.collection}</h4>
+            <h3>{findImplement.price}</h3>
+            <StyledPhoto src={findImplement.picture}
+                         alt={findImplement.model}
             />
-            {/*</PhotoWrapper>*/}
         </FlexWrapper>
     );
 };
