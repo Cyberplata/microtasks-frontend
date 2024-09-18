@@ -35,7 +35,28 @@ export const adidasArr: AdidasItem[] = [
         collection: 'new collection333',
         price: '300400$',
         picture: adidasModel3
-    }
+    },
+    // {
+    //     id: 4,
+    //     model: 'PUMA Sneakers',
+    //     collection: 'new collection11',
+    //     price: '100100$',
+    //     picture: pumaModel1,
+    // },
+    // {
+    //     id: 5,
+    //     model: 'PUMA Winter Boots',
+    //     collection: 'new collection222',
+    //     price: '200200$',
+    //     picture: pumaModel2
+    // },
+    // {
+    //     id: 6,
+    //     model: 'PUMA Mens Flip Flops',
+    //     collection: 'new collection3333',
+    //     price: '300300$',
+    //     picture: pumaModel3
+    // }
 ]
 
 export const Adidas = () => {

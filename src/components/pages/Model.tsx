@@ -13,8 +13,8 @@ export const Model = () => {
     const resultID = Number(params.id)
     // console.log(resultID) // { id: '1' }
 
-    const findImplement = adidasArr.find((el) => el.id === resultID)
-    if (!findImplement) {
+    const findAdidas = adidasArr.find((el) => el.id === resultID)
+    if (!findAdidas) {
         // return <Navigate to="/adidas/missing" />;
         return <ModelMissing />;
     }
@@ -34,11 +34,11 @@ export const Model = () => {
 
         // Через find
         <FlexWrapper>
-            <h2>{findImplement.model}</h2>
-            <h4>{findImplement.collection}</h4>
-            <h3>{findImplement.price}</h3>
-            <StyledPhoto src={findImplement.picture}
-                         alt={findImplement.model}
+            <h2>{findAdidas.model}</h2>
+            <h4>{findAdidas.collection}</h4>
+            <h3>{findAdidas.price}</h3>
+            <StyledPhoto src={findAdidas.picture}
+                         alt={findAdidas.model}
             />
         </FlexWrapper>
     );
