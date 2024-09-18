@@ -1,11 +1,17 @@
 import React from 'react';
-import {adidasArr} from "./Adidas";
+import {adidasArr, AdidasItem} from "./Adidas";
 import {Navigate, useParams} from "react-router-dom";
 import styled from "styled-components";
 import {ModelMissing} from "./ModelMissing";
-import {pumaArr} from "./Puma";
+import {pumaArr, PumaItem} from "./Puma";
 
-export const Model = () => {
+export type ModelType = {
+    items: AdidasItem[] | PumaItem[]
+}
+
+export const Model = ({items}: ModelType) => {
+    // const { items } = props;
+
     // Хук useParams возвращает объект пар ключ/значение динамических параметров из текущего URL-адреса, которые были сопоставлены с <Route path>. Дочерние маршруты наследуют все параметры от своих родительских маршрутов.
     const params = useParams()
 
@@ -14,17 +20,19 @@ export const Model = () => {
     const resultID = Number(params.id)
     // console.log(resultID) // { id: '1' }
 
-    const findAdidas = adidasArr.find((el) => el.id === resultID)
-    // if (!findAdidas) {
-    //     // return <Navigate to="/adidas/missing" />;
-    //     return <ModelMissing />;
-    // }
+    const findImplement = items.find((el) => el.id === resultID);
 
-    const findPuma = pumaArr.find((el) => el.id === resultID)
-    // if (!findPuma) {
-    //     // return <Navigate to="/adidas/missing" />;
-    //     return <ModelMissing />;
-    // }
+    // const findAdidas = adidasArr.find((el) => el.id === resultID)
+    // // if (!findAdidas) {
+    // //     // return <Navigate to="/adidas/missing" />;
+    // //     return <ModelMissing />;
+    // // }
+    //
+    // const findPuma = pumaArr.find((el) => el.id === resultID)
+    // // if (!findPuma) {
+    // //     // return <Navigate to="/adidas/missing" />;
+    // //     return <ModelMissing />;
+    // // }
 
 
     return (
@@ -50,27 +58,40 @@ export const Model = () => {
         //     />
         // </FlexWrapper>
 
-        <>
-            {findAdidas ? (
-                    <FlexWrapper>
-                        <h2>{findAdidas.model}</h2>
-                        <h4>{findAdidas.collection}</h4>
-                        <h3>{findAdidas.price}</h3>
-                        <StyledPhoto src={findAdidas.picture} alt={findAdidas.model}/>
-                    </FlexWrapper>
-                ) :
+        // <>
+        //     {findAdidas ? (
+        //             <FlexWrapper>
+        //                 <h2>{findAdidas.model}</h2>
+        //                 <h4>{findAdidas.collection}</h4>
+        //                 <h3>{findAdidas.price}</h3>
+        //                 <StyledPhoto src={findAdidas.picture} alt={findAdidas.model}/>
+        //             </FlexWrapper>
+        //         ) :
+        //
+        //         findPuma ? (
+        //             <FlexWrapper>
+        //                 <h2>{findPuma.model}</h2>
+        //                 <h4>{findPuma.collection}</h4>
+        //                 <h3>{findPuma.price}</h3>
+        //                 <StyledPhoto src={findPuma.picture} alt={findPuma.model}/>
+        //             </FlexWrapper>
+        //         ) : (
+        //             <ModelMissing/>
+        //         )
+        //     }
+        // </>
 
-                findPuma ? (
-                    <FlexWrapper>
-                        <h2>{findPuma.model}</h2>
-                        <h4>{findPuma.collection}</h4>
-                        <h3>{findPuma.price}</h3>
-                        <StyledPhoto src={findPuma.picture} alt={findPuma.model}/>
-                    </FlexWrapper>
-                ) : (
-                    <ModelMissing/>
-                )
-            }
+        <>
+            {findImplement ? (
+                <FlexWrapper>
+                    <h2>{findImplement.model}</h2>
+                    <h4>{findImplement.collection}</h4>
+                    <h3>{findImplement.price}</h3>
+                    <StyledPhoto src={findImplement.picture} alt={findImplement.model} />
+                </FlexWrapper>
+            ) : (
+                <ModelMissing />
+            )}
         </>
     );
 };
