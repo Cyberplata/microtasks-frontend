@@ -12,8 +12,9 @@ export const PATH = {
     PAGE2: "/puma",
     PAGE3: "/abibas",
     ERROR: "/page/error",
-    MODEL_ADIDAS: "/:adidas/:id",
-    MODEL_PUMA: "/:puma/:id",
+    MODEL: "/:model/:id",
+    // MODEL_ADIDAS: "/:model/:id",
+    // MODEL_PUMA: "/:model/:id",
 } as const
 
 function App() {
@@ -41,8 +42,8 @@ function App() {
                         <Route path={PATH.PAGE1} element={<Adidas/>}/>
                         <Route path={PATH.PAGE2} element={<Puma/>}/>
                         <Route path={PATH.PAGE3} element={<Abibas/>}/>
-                        <Route path={PATH.MODEL_ADIDAS} element={<Model items={adidasArr}/>}/>
-                        <Route path={PATH.MODEL_PUMA} element={<Model items={pumaArr}/>}/>
+                        <Route path={PATH.MODEL} element={<Model items={adidasArr}/>}/>
+                        <Route path={PATH.MODEL} element={<Model items={pumaArr}/>}/>
                         {/*<Route path="/adidas/missing" element={<ModelMissing />} />*/}
                         <Route path={"/*"} element={<Error404/>}/>
                         {/*<Route path="/*" element={<Navigate to={"/*"}/>}/>*/}
