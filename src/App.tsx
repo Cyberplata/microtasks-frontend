@@ -42,8 +42,8 @@ function App() {
                         <Route path={PATH.PAGE1} element={<Adidas/>}/>
                         <Route path={PATH.PAGE2} element={<Puma/>}/>
                         <Route path={PATH.PAGE3} element={<Abibas/>}/>
-                        <Route path={PATH.MODEL} element={<Model items={adidasArr}/>}/>
-                        <Route path={PATH.MODEL} element={<Model items={pumaArr}/>}/>
+                        <Route path={PATH.MODEL} element={<Model />}/>
+                        <Route path={PATH.MODEL} element={<Model />}/>
                         {/*<Route path="/adidas/missing" element={<ModelMissing />} />*/}
                         <Route path={"/*"} element={<Error404/>}/>
                         {/*<Route path="/*" element={<Navigate to={"/*"}/>}/>*/}
