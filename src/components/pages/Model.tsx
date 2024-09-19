@@ -18,9 +18,9 @@ export const Model = ({items}: ModelType) => {
     // Преобразуем из строки в число и вычитаем - 1 это и получается наша id
     // const resultID = Number(params.id) - 1
     const resultID = Number(params.id)
-    // console.log(resultID) // { id: '1' }
+    console.log(params) // { id: '1' }
 
-    const findImplement = items.find((el) => el.id === resultID);
+    const currentModel = items.find((el) => el.id === resultID);
 
     // const findAdidas = adidasArr.find((el) => el.id === resultID)
     // // if (!findAdidas) {
@@ -82,12 +82,12 @@ export const Model = ({items}: ModelType) => {
         // </>
 
         <>
-            {findImplement ? (
+            {currentModel ? (
                 <FlexWrapper>
-                    <h2>{findImplement.model}</h2>
-                    <h4>{findImplement.collection}</h4>
-                    <h3>{findImplement.price}</h3>
-                    <StyledPhoto src={findImplement.picture} alt={findImplement.model} />
+                    <h2>{currentModel.model}</h2>
+                    <h4>{currentModel.collection}</h4>
+                    <h3>{currentModel.price}</h3>
+                    <StyledPhoto src={currentModel.picture} alt={currentModel.model} />
                 </FlexWrapper>
             ) : (
                 <ModelMissing />
