@@ -12,8 +12,8 @@ export const PATH = {
     PAGE2: "/puma",
     PAGE3: "/abibas",
     ERROR: "/page/error",
-    MODEL_ADIDAS: "/adidas/:id",
-    MODEL_PUMA: "/puma/:id",
+    MODEL_ADIDAS: "/:adidas/:id",
+    MODEL_PUMA: "/:puma/:id",
 } as const
 
 function App() {
