@@ -1,5 +1,6 @@
 import React from 'react';
 import {Adidas, adidasArr} from "./components/pages/Adidas";
+import {Prices} from "./components/pages/Prices";
 import {Puma, pumaArr} from "./components/pages/Puma";
 import {Abibas} from "./components/pages/Abibas";
 import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
@@ -13,8 +14,10 @@ export const PATH = {
     PAGE3: "/abibas",
     ERROR: "/page/error",
     MODEL: "/:model/:id",
+    PRICES: "/prices",
     // MODEL_ADIDAS: "/:model/:id",
     // MODEL_PUMA: "/:model/:id",
+
 } as const
 
 function App() {
@@ -32,7 +35,10 @@ function App() {
                     <S.NavWrapper>
                         <NavLink to={PATH.PAGE3}>Abibas</NavLink>
                     </S.NavWrapper>
-                    <a href="page3">page 3 HTML</a>
+                    <S.NavWrapper>
+                        <NavLink to={PATH.PRICES}>Цены для оптовиков</NavLink>
+                    </S.NavWrapper>
+                    {/*<a href="page3">page 3 HTML</a>*/}
                     {/*<div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>*/}
                 </S.AllNavigationWrapper>
                 <S.Content>
@@ -42,8 +48,8 @@ function App() {
                         <Route path={PATH.PAGE1} element={<Adidas/>}/>
                         <Route path={PATH.PAGE2} element={<Puma/>}/>
                         <Route path={PATH.PAGE3} element={<Abibas/>}/>
-                        <Route path={PATH.MODEL} element={<Model />}/>
-                        <Route path={PATH.MODEL} element={<Model />}/>
+                        <Route path={PATH.MODEL} element={<Model/>}/>
+                        <Route path={PATH.PRICES} element={<Prices/>}/>
                         {/*<Route path="/adidas/missing" element={<ModelMissing />} />*/}
                         <Route path={"/*"} element={<Error404/>}/>
                         {/*<Route path="/*" element={<Navigate to={"/*"}/>}/>*/}

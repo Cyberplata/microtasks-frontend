@@ -33,7 +33,6 @@ export const Model = () => {
     // console.log(model, id) // {model: 'adidas', id: '1'}
 
     // const currentModel = items.find((el) => el.id === resultID);
-    // const currentModel = adidasArr.find((el) => el.id === resultID);
 
     const currentModel = model
         ? crossModels[model].find(el => el.id === resultID)
@@ -50,7 +49,6 @@ export const Model = () => {
     // //     // return <Navigate to="/adidas/missing" />;
     // //     return <ModelMissing />;
     // // }
-
 
     return (
         <>
