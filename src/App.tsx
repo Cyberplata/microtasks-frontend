@@ -8,17 +8,6 @@ import {Error404} from "./components/pages/Error404";
 import {S} from "./components/pages/_styles"
 import {Model} from "./components/pages/Model";
 
-export const PATH = {
-    PAGE1: "/adidas",
-    PAGE2: "/puma",
-    PAGE3: "/abibas",
-    ERROR: "/page/error",
-    MODEL: "/:model/:id",
-    PRICES: "/prices",
-    // MODEL_ADIDAS: "/:model/:id",
-    // MODEL_PUMA: "/:model/:id",
-
-} as const
 
 function App() {
     return (
