@@ -4,9 +4,9 @@ import {Outlet} from "react-router-dom";
 export const Croses = () => {
     return (
         <div>
-            <div>HEADERRRR</div>
+            <div>HEADERRRRRRRRRRRRRR</div>
             <Outlet />
-            <div>FOOTER</div>
+            <div>FOOTEEEEEEEEEEEEEEEEEEEEEEEEEEEER</div>
         </div>
     );
 };
