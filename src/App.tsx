@@ -32,6 +32,9 @@ function App() {
                     <S.NavWrapper>
                         <NavLink to={PATH.PRICES}>Цены для оптовиков</NavLink>
                     </S.NavWrapper>
+                    <S.NavWrapper>
+                        <NavLink to={PATH.PROTECTEDPAGE}>Protected Page</NavLink>
+                    </S.NavWrapper>
                     {/*<a href="page3">page 3 HTML</a>*/}
                     {/*<div><Link to={"https://yandex.com/"} target={"_blank"}>Yandex</Link></div>*/}
                 </S.AllNavigationWrapper>

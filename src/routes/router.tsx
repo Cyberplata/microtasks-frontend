@@ -8,6 +8,7 @@ import {Croses} from "../components/pages/Croses";
 import {Error404} from "../components/pages/Error404";
 import {Model} from "../components/pages/Model";
 import {Prices} from "../components/pages/Prices";
+import {ProtectedPage} from "../components/pages/ProtectedPage";
 import {Puma} from "../components/pages/Puma";
 
 // Новый синтаксис RRD в React Router v6.4
@@ -25,6 +26,7 @@ export const PATH = {
     ERROR: "/page/error",
     MODEL: "/:model/:id",
     PRICES: "/prices",
+    PROTECTEDPAGE: "/protected",
     // MODEL_ADIDAS: "/:model/:id",
     // MODEL_PUMA: "/:model/:id",
 } as const
@@ -54,6 +56,10 @@ export const router = createBrowserRouter([
             {
                 path: PATH.MODEL,
                 element: <Model/>,
+            },
+            {
+                path: PATH.PROTECTEDPAGE,
+                element: <ProtectedPage/>,
             },
         ]
     },
