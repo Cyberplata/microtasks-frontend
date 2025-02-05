@@ -1,7 +1,7 @@
 import React from 'react';
-import {adidasArr, AdidasItem} from "./Adidas";
-import {Navigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import styled from "styled-components";
+import {adidasArr, AdidasItem} from "./Adidas";
 import {ModelMissing} from "./ModelMissing";
 import {pumaArr, PumaItem} from "./Puma";
 

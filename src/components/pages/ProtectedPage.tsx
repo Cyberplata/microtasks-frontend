@@ -1,7 +1,9 @@
+import {ProtectedRoute} from "../../routes/ProtectedRoute";
+
 export const ProtectedPage = () => {
    return (
-      <div>
+      <ProtectedRoute>
          ProtectedPage
-      </div>
+      </ProtectedRoute>
    );
 };
