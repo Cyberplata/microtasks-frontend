@@ -1,6 +1,7 @@
 import React from "react";
 import {Navigate} from "react-router-dom";
 import {Error404} from "../components/pages/Error404";
+import {PATH} from "./router";
 
 type Props = {
    children: React.ReactNode; // принимает все дочерние элементы
@@ -14,12 +15,12 @@ export const ProtectedRoute = ({children}: Props) => {
 
    const isAuth = useAuth();
 
-   // return isAuth ? {children} : <Error404/>
    return isAuth
       ? <>
          {children}
       </>
-      // : <Navigate to="/error"/>;
-      : <Error404/>;
+      : <Navigate to="/error"/>;
+      // : <Navigate to={PATH.ERROR}/>
+      // : <Error404/>;
 
 };

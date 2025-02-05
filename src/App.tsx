@@ -40,7 +40,6 @@ function App() {
                 </S.AllNavigationWrapper>
                 <S.Content>
                     <Outlet />
-
                     {/*<Routes>*/}
                     {/*    <Route path="/" element={<Navigate to={PATH.PAGE1}/>}/>*/}
 

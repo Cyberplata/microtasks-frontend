@@ -22,10 +22,11 @@ export const PATH = {
    ADIDAS: "/adidas",
    PUMA: "/puma",
    ABIBAS: "/abibas",
-   ERROR: "/page/error",
+   ERROR: "/error",
    MODEL: "/:model/:id",
    PRICES: "/prices",
    PROTECTEDPAGE: "/protected",
+   // ERROR: "/page/error",
    // MODEL_ADIDAS: "/:model/:id",
    // MODEL_PUMA: "/:model/:id",
 } as const
@@ -64,6 +65,14 @@ export const router = createBrowserRouter([
                </ProtectedRoute>
             ),
          },
+         {
+            path: PATH.ERROR,
+            element: <Error404/>,
+         },
+         {
+            path: "*",
+            element: <Error404/>
+         }
       ]
    },
 ]);
