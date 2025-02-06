@@ -1,5 +1,5 @@
 import * as React from "react";
-import {createBrowserRouter,} from "react-router-dom";
+import {createBrowserRouter, Navigate,} from "react-router-dom";
 import App from "../App";
 import {Abibas} from "../components/pages/Abibas";
 import {Adidas} from "../components/pages/Adidas";
@@ -22,10 +22,10 @@ export const PATH = {
    ADIDAS: "/adidas",
    PUMA: "/puma",
    ABIBAS: "/abibas",
-   ERROR: "/error",
    MODEL: "/:model/:id",
    PRICES: "/prices",
    PROTECTEDPAGE: "/protected",
+   ERROR: "/error",
    // ERROR: "/page/error",
    // MODEL_ADIDAS: "/:model/:id",
    // MODEL_PUMA: "/:model/:id",
@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
    {
       path: "/",
       element: <App/>,
-      errorElement: <Error404/>,
+      errorElement: <Navigate to={PATH.ERROR}/>,
       children: [
          {
             path: PATH.ADIDAS,
@@ -69,10 +69,10 @@ export const router = createBrowserRouter([
             path: PATH.ERROR,
             element: <Error404/>,
          },
-         {
-            path: "*",
-            element: <Error404/>
-         }
+         // {
+         //    path: "*",
+         //    element: <Error404/>
+         // }
       ]
    },
 ]);

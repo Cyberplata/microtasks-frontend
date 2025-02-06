@@ -2,9 +2,10 @@ import React from 'react';
 import pumaModel1 from "../../assets/puma/pumaModel1.webp";
 import pumaModel2 from "../../assets/puma/pumaModel2.webp";
 import pumaModel3 from "../../assets/puma/pumaModel3.webp";
-import {PhotoWrapper} from "./Adidas";
+// import {PhotoWrapper} from "./Adidas";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
+import {S} from "./_styles"
 
 export type PumaItem = {
     id: number
@@ -42,7 +43,7 @@ export const Puma = () => {
         <div>
             <h2>PUMA</h2>
 
-            <PhotoWrapper>
+            <S.PhotoWrapper>
                 {pumaArr.map((puma, index) => {
                     return (
                         <Link key={index} to={`/puma/${puma.id}`}>
@@ -52,7 +53,7 @@ export const Puma = () => {
                         </Link>
                     )
                 })}
-            </PhotoWrapper>
+            </S.PhotoWrapper>
 
             <p>
                 What is Lorem Ipsum?

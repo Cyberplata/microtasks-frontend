@@ -56,11 +56,31 @@ const Footer = styled.footer`
     color: white;
 `
 
+const PhotoWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    & > a {
+        //display: flex;
+        //justify-content: center;
+        //gap: 20px;
+    }
+`
+
+const FlexWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 export const S = {
     NavWrapper,
     HeaderWrapper,
     BodyWrapper,
     AllNavigationWrapper,
     Content,
-    Footer
+    Footer,
+    PhotoWrapper,
+    FlexWrapper
 }

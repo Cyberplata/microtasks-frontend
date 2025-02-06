@@ -1,10 +1,12 @@
-import React from 'react';
+import {S} from "./_styles"
 
 export const Error404 = () => {
-    return (
-        <div>
+   return (
+      <>
+         <S.FlexWrapper>
             Error404
-        </div>
-    );
+         </S.FlexWrapper>
+      </>
+   );
 };
 

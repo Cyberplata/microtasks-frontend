@@ -1,9 +1,12 @@
 import React from 'react';
+import {S} from "./_styles"
 
 export const ModelMissing = () => {
     return (
-        <div>
-            <h2>Модель отсутствует</h2>
-        </div>
+       <>
+          <S.FlexWrapper>
+             <h2>Модель отсутствует</h2>
+          </S.FlexWrapper>
+       </>
     );
 };

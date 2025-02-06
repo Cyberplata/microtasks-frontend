@@ -1,10 +1,11 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+import styled from "styled-components";
 import adidasModel1 from '../../assets/adidas/AdiFOM_TRXN_Shoes_Black_IG7453_01_standard.webp'
 import adidasModel2
     from '../../assets/adidas/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp'
 import adidasModel3 from '../../assets/adidas/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp'
-import styled from "styled-components";
-import {Link} from "react-router-dom";
+import {S} from "./_styles"
 
 
 export type AdidasItem = {
@@ -64,7 +65,7 @@ export const Adidas = () => {
         <div>
             <h2>ADIDAS</h2>
 
-            <PhotoWrapper>
+            <S.PhotoWrapper>
                 {adidasArr.map((addidas, index) => {
                     return (
                         // Любую информацию можно передавать в параметры URL-адреса, то есть после adidas/ => to={`/adidas/hhhhhhhhhhh итд
@@ -75,7 +76,7 @@ export const Adidas = () => {
                         </Link>
                     )
                 })}
-            </PhotoWrapper>
+            </S.PhotoWrapper>
 
             <p>
                 What is Lorem Ipsum?
@@ -119,18 +120,18 @@ export const Adidas = () => {
     );
 };
 
-export const PhotoWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-
-    & > a {
-        //display: flex;
-        //justify-content: center;
-        //gap: 20px;
-    }
-
-`
+// export const PhotoWrapper = styled.div`
+//     display: flex;
+//     justify-content: center;
+//     gap: 20px;
+//
+//     & > a {
+//         //display: flex;
+//         //justify-content: center;
+//         //gap: 20px;
+//     }
+//
+// `
 
 export const StyledPhoto = styled.img`
     width: 250px;
