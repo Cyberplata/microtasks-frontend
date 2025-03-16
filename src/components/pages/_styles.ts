@@ -74,13 +74,51 @@ const FlexWrapper = styled.div`
     align-items: center;
 `
 
+const LinkLikeButton = styled.a`
+    height: 54px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+`
+
+const ButtonLikeLink = styled.button`
+    margin-left: 5px;
+    height: 55px;
+    background-color: #ff00b7;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 30px;
+
+    &:hover {
+        background-color: #980569;
+    }
+`
+
+const HorizontalNavigation = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
 export const S = {
-    NavWrapper,
-    HeaderWrapper,
-    BodyWrapper,
-    AllNavigationWrapper,
-    Content,
-    Footer,
-    PhotoWrapper,
-    FlexWrapper
+   NavWrapper,
+   HeaderWrapper,
+   BodyWrapper,
+   AllNavigationWrapper,
+   Content,
+   Footer,
+   PhotoWrapper,
+   FlexWrapper,
+   LinkLikeButton,
+   ButtonLikeLink,
+   HorizontalNavigation
 }

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {createBrowserRouter, Navigate, Outlet, RouteObject,} from "react-router-dom";
+import {createBrowserRouter, Navigate, Outlet, RouteObject, useLocation,} from "react-router-dom";
 import App from "../App";
 import {Abibas} from "../components/pages/Abibas";
 import {Adidas} from "../components/pages/Adidas";
@@ -25,8 +25,9 @@ export const PATH = {
    MODEL: "/:model/:id",
    PRICES: "/prices",
    PROTECTED: "/protected",
-   ERROR: "/error",
+   ERROR: "*",
    LOGIN: "/login",
+   DEFAULT: "/", // По умолчанию открывается Adidas
 } as const
 
 const publicRoutes: RouteObject[] = [
@@ -57,7 +58,11 @@ const publicRoutes: RouteObject[] = [
    {
       path: PATH.LOGIN,
       element: <Login/>
-   }
+   },
+   {
+      path: PATH.DEFAULT,
+      element: <Adidas/>
+   },
 ]
 
 const privateRoutes: RouteObject[] = [
@@ -69,89 +74,24 @@ const privateRoutes: RouteObject[] = [
 
 export const PrivateRoutes = () => {
    const isAuth = false
+   const location = useLocation();
 
    // Если true, то он отображает privateRoutes
-   // Если false -> то выпрыгивает наверх в /login и отображает Login
-   return isAuth ? <Outlet/> : <Navigate to="/login"/>;
+   // Если false - не авторизован -> то выпрыгивает наверх в /login и отображает Login
+   return isAuth ? <Outlet/> : <Navigate to="/login" state={{ from: location }} replace />; // <Outlet /> — это место, где отобразятся вложенные маршруты (они передаются через children).
 };
 
 export const router = createBrowserRouter([
    {
       path: "/",
       element: <App/>,
-      errorElement: <Navigate to={PATH.ERROR}/>,
-      children: [
+      errorElement: <Error404/>,
+      children: [ // Что за вложенные маршруты тут? - publicRoutes и privateRoutes
          {
-            element: <PrivateRoutes/>, // Включайся вот этот компонент, если бы не было true/false (isAuth), то он постоянно включал наш массив (privateRoutes)
-            children: privateRoutes,
+            element: <PrivateRoutes/>, // Контейнер для защищённых маршрутов. Включайся вот этот компонент, если бы не было true/false (isAuth), то он постоянно включал наш массив (privateRoutes)
+            children: privateRoutes, // Вложенные private маршруты (например, `/protected`). Вот здесь будут вложенные маршруты, если isAuth = true
          },
          ...publicRoutes,
       ]
    },
 ]);
-
-
-// --------------------------------------------------------------------
-// export const PATH = {
-//    ADIDAS: "/adidas",
-//    PUMA: "/puma",
-//    ABIBAS: "/abibas",
-//    MODEL: "/:model/:id",
-//    PRICES: "/prices",
-//    PROTECTEDPAGE: "/protected",
-//    ERROR: "/error",
-//    LOGIN: "/login",
-//    // ERROR: "/page/error",
-//    // MODEL_ADIDAS: "/:model/:id",
-//    // MODEL_PUMA: "/:model/:id",
-// } as const
-//
-// export const router = createBrowserRouter([
-//    {
-//       path: "/",
-//       element: <App/>,
-//       errorElement: <Navigate to={PATH.ERROR}/>,
-//       children: [
-//          {
-//             path: PATH.ADIDAS,
-//             element: <Adidas/>,
-//          },
-//          {
-//             path: PATH.PUMA,
-//             element: <Puma/>,
-//          },
-//          {
-//             path: PATH.ABIBAS,
-//             element: <Abibas/>,
-//          },
-//          {
-//             path: PATH.PRICES,
-//             element: <Prices/>,
-//          },
-//          {
-//             path: PATH.MODEL,
-//             element: <Model/>,
-//          },
-//          {
-//             path: PATH.PROTECTEDPAGE,
-//             element: (
-//                <ProtectedRoute>
-//                   <ProtectedPage/>
-//                </ProtectedRoute>
-//             ),
-//          },
-//          {
-//             path: PATH.ERROR,
-//             element: <Error404/>,
-//          },
-//          {
-//             path: PATH.LOGIN,
-//             element: <Login />
-//          }
-//          // {
-//          //    path: "*",
-//          //    element: <Error404/>
-//          // }
-//       ]
-//    },
-// ]);
